@@ -18,9 +18,10 @@ urlpatterns = [
     path('changepassword/', views.change_password, name='changepassword'),
     path('mobile/', views.mobile, name='mobile'),
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(next_page = 'login'), name = 'log-out'),
     #path('login/', views.login, name='login'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name = 'app/login.html', authentication_form = LoginForm), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page = 'login'), name = 'logout'),
+    
     #path('registration/', views.customerregistration, name='customerregistration'),
     path('registration/', views.CustomerRegistrationView.as_view(), name = 'customerregistration'),
     path('checkout/', views.checkout, name='checkout'),
